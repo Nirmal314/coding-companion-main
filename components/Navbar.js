@@ -1,5 +1,5 @@
 import Image from "next/image";
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import logo from "../public/CC_H.png";
 import { useRouter } from "next/router";
 import Link from "next/link";
@@ -8,6 +8,7 @@ import { motion } from "framer-motion";
 function DaisyNav() {
   const [tokeN, setToken] = useState({ value: null });
   const [isOpen, setIsOpen] = useState(false);
+  const ref = useRef()
 
   const router = useRouter();
   useEffect(() => {
@@ -16,6 +17,15 @@ function DaisyNav() {
       setToken({ value: token });
     }
   }, [router.query]);
+
+  useEffect(() => {
+    if (!isOpen && document.getElementById("mobile-nav").classList.contains("block")) {
+      setIsOpen(false)
+    } else if (isOpen && document.getElementById("mobile-nav").classList.contains("hidden")) {
+      setIsOpen(true)
+    }
+  }, [isOpen])
+
 
   function logout() {
     localStorage.removeItem("token");
@@ -117,8 +127,8 @@ function DaisyNav() {
                   Sign in
                 </Link>
 
-                <label class="hamburger">
-                  <input className="block text-white md:hidden" type="checkbox" onClick={() => setIsOpen(!isOpen)} />
+                <label class="hamburger block md:hidden">
+                  <input className="text-white " type="checkbox" onClick={() => setIsOpen(!isOpen)} />
                   <svg viewBox="0 0 32 32">
                     <path class="line line-top-bottom" d="M27 10 13 10C10.8 10 9 8.2 9 6 9 3.5 10.8 2 13 2 15.2 2 17 3.8 17 6L17 26C17 28.2 18.8 30 21 30 23.2 30 25 28.2 25 26 25 23.8 23.2 22 21 22L7 22"></path>
                     <path class="line" d="M7 16 27 16"></path>
@@ -137,8 +147,9 @@ function DaisyNav() {
           height: isOpen ? "auto" : 0,
           opacity: isOpen ? 1 : 0,
         }}
+        id="mobile-nav"
         transition={{ duration: 0.5, ease: "easeInOut" }}
-        className="overflow-hidden md:hidden"
+        className="block overflow-hidden md:hidden"
       >
         {isOpen && (
           <motion.div
