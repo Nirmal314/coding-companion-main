@@ -18,7 +18,7 @@ function Login1() {
         <div className="flex flex-col items-center justify-center md:flex-row">
           <div className="flex items-center justify-center w-full p-8 md:w-1/2">
             <Image src={LL} height={300} width={250} className="hidden h-auto max-w-full md:block" alt="Logo" />
-            <Image src={LLL} height={300} width={250} className="block h-auto max-w-full md:hidden" alt="Logo" />
+            <Image src={LLL} height={160} width={140} className="block h-auto max-w-full md:hidden" alt="Logo" />
           </div>
           <div className="w-full p-8 md:w-1/2">
             <div className="mb-8">
