@@ -106,7 +106,7 @@ function Home() {
         <p className="mt-20 mb-8 text-4xl font-semibold text-center text-white md:text-6xl">
           Keep an eye on <br /> All of your progress
         </p>
-        <div className="tracking-[1.50rem] uppercase text-md md:text-2xl text-white text-center font-thin mb-28">
+        <div className="font-thin tracking-[1rem] text-center text-white uppercase text-md md:text-2xl mb-28">
           <span>{text}</span>
           <Cursor cursorColor="#43c0f5"></Cursor>
         </div>
@@ -140,8 +140,8 @@ function Home() {
               onMouseOver={handleOverLC}
               onMouseLeave={handleLeaveLC}
             >
-              <div className="p-5 mb-8 text-2xl font-black text-center md:text-4xl md:text-left">LeetCode</div>
-              <p className="p-5 text-justify md:text-left">
+              <div className="p-5 text-2xl font-black text-center md:text-4xl md:text-left">LeetCode</div>
+              <p className="p-5 mb-8 text-justify md:mb-0 md:text-left">
                 Leetcode is worth not just for their problems or OJ, but for community and
                 the button "Discuss". For some problems you might read up to 5 different
                 approaches realized on a variety of languages with human explanation.
@@ -156,8 +156,8 @@ function Home() {
               onMouseOver={handleOverCC}
               onMouseLeave={handleLeaveCC}
             >
-              <div className="p-5 mb-8 text-2xl font-black text-center md:text-4xl md:text-left">CodeChef</div>
-              <p className="p-5 text-justify md:text-left">
+              <div className="p-5 text-2xl font-black text-center md:text-4xl md:text-left">CodeChef</div>
+              <p className="p-5 mb-8 text-justify md:mb-0 md:text-left">
                 CodeChef is based on time and space optimizations when your real
                 implementation. It is a useful tool for advanced software engineers
                 looking to prepare for their technical interviews. Though they provide
@@ -212,7 +212,7 @@ function Home() {
               onMouseOver={handleOverCF}
               onMouseLeave={handleLeaveCF}
             >
-              <div className="p-5 mb-8 text-2xl font-black text-center md:text-4xl md:text-left">CodeForces</div>
+              <div className="p-5 text-2xl font-black text-center md:text-4xl md:text-left">CodeForces</div>
               <p className="p-5 text-justify md:text-left">
                 Lorem ipsum dolor sit amet consectetur adipisicing elit. Eveniet nulla
                 expedita fugit temporibus veniam? Nam omnis quaerat corporis culpa
