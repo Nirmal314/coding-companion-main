@@ -2,6 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import React, { useEffect, useState } from "react";
 import LL from "../public/CC_V.png";
+import LLL from "../public/CC_W.png";
 
 function Login1() {
   const [email, setEmail] = useState("");
@@ -16,12 +17,13 @@ function Login1() {
       <div className="w-full max-w-4xl bg-[#141c28] border-2 border-[#43c0f5] shadow-xl shadow-all rounded-2xl overflow-hidden">
         <div className="flex flex-col items-center justify-center md:flex-row">
           <div className="flex items-center justify-center w-full p-8 md:w-1/2">
-            <Image src={LL} height={300} width={250} className="h-auto max-w-full" alt="Logo" />
+            <Image src={LL} height={300} width={250} className="hidden h-auto max-w-full md:block" alt="Logo" />
+            <Image src={LLL} height={300} width={250} className="block h-auto max-w-full md:hidden" alt="Logo" />
           </div>
           <div className="w-full p-8 md:w-1/2">
             <div className="mb-8">
-              <h1 className="mb-2 text-4xl font-semibold text-white md:text-5xl">Sign in</h1>
-              <p className="text-lg font-medium text-white">Welcome back!</p>
+              <h1 className="mb-2 text-4xl font-semibold text-center text-white md:text-5xl md:text-left">Sign in</h1>
+              <p className="text-lg font-medium text-center text-white md:text-left">Welcome back!</p>
             </div>
             <form className="space-y-6">
               <div className="relative">
