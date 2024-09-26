@@ -8,7 +8,6 @@ import { motion } from "framer-motion";
 function DaisyNav() {
   const [tokeN, setToken] = useState({ value: null });
   const [isOpen, setIsOpen] = useState(false);
-  const ref = useRef()
 
   const router = useRouter();
   useEffect(() => {
