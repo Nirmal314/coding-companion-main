@@ -90,237 +90,131 @@ function Signup2() {
     }
   }
   return (
-    <>
-      <div className="flex flex-col w-full justify-start items-center h-screen">
-        <ToastContainer
-          position="top-right"
-          autoClose={5000}
-          hideProgressBar={false}
-          newestOnTop={false}
-          closeOnClick
-          rtl={false}
-          pauseOnFocusLoss
-          draggable
-          pauseOnHover
-          theme="dark"
-        />
-        <div className="flex h-screen w-full justify-center items-center">
-          <div className="flex justify-center items-center bg-[#141c28] shadow-all border-2 border-[#43c0f5] rounded-2xl w-3/4 h-3/4">
-            <div className="flex items-center justify-center ">
-              <div className="mr-16">
-                <Image src={LL} height={450} width={350} />
+    <div className="flex flex-col items-center justify-center min-h-screen w-full bg-[#141c28] p-4">
+      <ToastContainer
+        position="top-right"
+        autoClose={5000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        theme="dark"
+      />
+      <div className="w-full max-w-4xl bg-[#141c28] border-2 border-[#43c0f5] shadow-xl shadow-all rounded-2xl overflow-hidden">
+        <div className="flex flex-col items-center justify-center md:flex-row">
+          <div className="items-center justify-center hidden w-1/2 p-8 md:flex">
+            <Image src={LL} height={450} width={350} alt="Logo" className="h-auto max-w-full" />
+          </div>
+          <div className="w-full p-8 md:w-1/2">
+            <h1 className="mb-8 text-3xl font-medium text-center text-white md:text-4xl md:text-left">
+              Create an Account!
+            </h1>
+            <form onSubmit={handleSubmit} className="space-y-4">
+              <InputField
+                icon={<UserIcon />}
+                type="text"
+                placeholder="Your name"
+                onChange={(e) => setName(e.target.value)}
+              />
+              <InputField
+                icon={<EmailIcon />}
+                type="email"
+                placeholder="Your email"
+                onChange={(e) => setEmail(e.target.value)}
+              />
+              <div className="flex flex-col space-y-4 md:flex-row md:space-y-0 md:space-x-4">
+                <InputField
+                  icon={<LockIcon />}
+                  type="password"
+                  placeholder="Create password"
+                  onChange={(e) => setPass1(e.target.value)}
+                />
+                <InputField
+                  icon={<LockIcon />}
+                  type="password"
+                  placeholder="Confirm password"
+                  onChange={(e) => setPass2(e.target.value)}
+                />
               </div>
-              <div class="vl">{""}</div>
-              <div className="flex justify-center flex-col items-center">
-                <p className="text-4xl font-medium mb-10 text-white">
-                  Create an Account!
-                </p>
-                <div className="w-full max-w-lg">
-                  <div className="flex mb-4">
-                    <div className="w-full px-3 relative">
-                      <div class="flex absolute inset-y-0 left-0 items-center pl-3 pointer-events-none">
-                        <svg
-                          xmlns="http://www.w3.org/2000/svg"
-                          viewBox="0 0 20 20"
-                          fill="currentColor"
-                          className="w-6 h-6 text-white"
-                        >
-                          <path d="M10 8a3 3 0 100-6 3 3 0 000 6zM3.465 14.493a1.23 1.23 0 00.41 1.412A9.957 9.957 0 0010 18c2.31 0 4.438-.784 6.131-2.1.43-.333.604-.903.408-1.41a7.002 7.002 0 00-13.074.003z" />
-                        </svg>
-                      </div>
-                      <input
-                        className="appearance-none focus:outline-none w-full bg-transparent text-white placeholder:text-[#909090] border-b border-white py-3 px-4 ml-3 leading-tight"
-                        id="grid-first-name"
-                        type="text"
-                        placeholder="Your name"
-                        defaultValue={""}
-                        onChange={(e) => setName(e.target.value)}
-                      />
-                    </div>
-                  </div>
-                  <div className="flex mb-4">
-                    <div className="w-full px-3 relative">
-                      <div class="flex absolute inset-y-0 left-0 items-center pl-3 pointer-events-none">
-                        <svg
-                          xmlns="http://www.w3.org/2000/svg"
-                          viewBox="0 0 24 24"
-                          fill="currentColor"
-                          className="w-6 h-6 text-white"
-                        >
-                          <path d="M1.5 8.67v8.58a3 3 0 003 3h15a3 3 0 003-3V8.67l-8.928 5.493a3 3 0 01-3.144 0L1.5 8.67z" />
-                          <path d="M22.5 6.908V6.75a3 3 0 00-3-3h-15a3 3 0 00-3 3v.158l9.714 5.978a1.5 1.5 0 001.572 0L22.5 6.908z" />
-                        </svg>
-                      </div>
-                      <input
-                        className="appearance-none focus:outline-none w-full bg-transparent text-white placeholder:text-[#909090] border-b border-white py-3 px-4 ml-3 leading-tight"
-                        id="grid-first-name"
-                        type="email"
-                        placeholder="Your email"
-                        defaultValue={""}
-                        onChange={(e) => setEmail(e.target.value)}
-                      />
-                    </div>
-                  </div>
-                  <div className="flex w-full justify-between">
-                    {" "}
-                    {/*Side by side input fields*/}
-                    <div className="flex mb-4">
-                      <div className="w-full px-3 relative">
-                        <div class="flex absolute inset-y-0 left-0 items-center pl-3 pointer-events-none">
-                          <svg
-                            xmlns="http://www.w3.org/2000/svg"
-                            viewBox="0 0 24 24"
-                            fill="currentColor"
-                            className="w-6 h-6 text-white"
-                          >
-                            <path
-                              fillRule="evenodd"
-                              d="M12 1.5a5.25 5.25 0 00-5.25 5.25v3a3 3 0 00-3 3v6.75a3 3 0 003 3h10.5a3 3 0 003-3v-6.75a3 3 0 00-3-3v-3c0-2.9-2.35-5.25-5.25-5.25zm3.75 8.25v-3a3.75 3.75 0 10-7.5 0v3h7.5z"
-                              clipRule="evenodd"
-                            />
-                          </svg>
-                        </div>
-                        <input
-                          className="appearance-none focus:outline-none w-full bg-transparent text-white placeholder:text-[#909090] border-b border-white py-3 px-4 ml-3 leading-tight"
-                          id="grid-first-name"
-                          type="password"
-                          defaultValue={""}
-                          placeholder="Create password"
-                          onChange={(e) => setPass1(e.target.value)}
-                        />
-                      </div>
-                    </div>
-                    <div className="flex mb-4">
-                      <div className="w-full px-3 relative">
-                        <div class="flex absolute inset-y-0 left-0 items-center pl-3 pointer-events-none">
-                          <svg
-                            xmlns="http://www.w3.org/2000/svg"
-                            viewBox="0 0 24 24"
-                            fill="currentColor"
-                            className="w-6 h-6 text-white"
-                          >
-                            <path
-                              fillRule="evenodd"
-                              d="M12 1.5a5.25 5.25 0 00-5.25 5.25v3a3 3 0 00-3 3v6.75a3 3 0 003 3h10.5a3 3 0 003-3v-6.75a3 3 0 00-3-3v-3c0-2.9-2.35-5.25-5.25-5.25zm3.75 8.25v-3a3.75 3.75 0 10-7.5 0v3h7.5z"
-                              clipRule="evenodd"
-                            />
-                          </svg>
-                        </div>
-                        <input
-                          className="appearance-none focus:outline-none w-full bg-transparent text-white placeholder:text-[#909090] border-b border-white py-3 px-4 ml-3 leading-tight"
-                          id="grid-first-name"
-                          type="password"
-                          placeholder="Confirm password"
-                          defaultValue={""}
-                          onChange={(e) => setPass2(e.target.value)}
-                        />
-                      </div>
-                    </div>
-                  </div>
-                  <div className="flex mb-4">
-                    <div className="w-full px-3 relative">
-                      <div class="flex absolute inset-y-0 left-0 items-center pl-3 pointer-events-none">
-                        <svg
-                          xmlns="http://www.w3.org/2000/svg"
-                          viewBox="0 0 24 24"
-                          fill="currentColor"
-                          className="w-6 h-6 text-white"
-                        >
-                          <path
-                            fillRule="evenodd"
-                            d="M14.447 3.027a.75.75 0 01.527.92l-4.5 16.5a.75.75 0 01-1.448-.394l4.5-16.5a.75.75 0 01.921-.526zM16.72 6.22a.75.75 0 011.06 0l5.25 5.25a.75.75 0 010 1.06l-5.25 5.25a.75.75 0 11-1.06-1.06L21.44 12l-4.72-4.72a.75.75 0 010-1.06zm-9.44 0a.75.75 0 010 1.06L2.56 12l4.72 4.72a.75.75 0 11-1.06 1.06L.97 12.53a.75.75 0 010-1.06l5.25-5.25a.75.75 0 011.06 0z"
-                            clipRule="evenodd"
-                          />
-                        </svg>
-                      </div>
-                      <input
-                        className="appearance-none focus:outline-none w-full bg-transparent text-white placeholder:text-[#909090] border-b border-white py-3 px-4 ml-3 leading-tight"
-                        id="grid-first-name"
-                        type="text"
-                        placeholder="Leetcode ID"
-                        defaultValue={""}
-                        onChange={(e) => setLeetcode(e.target.value)}
-                      />
-                    </div>
-                  </div>
-                  <div className="flex mb-4">
-                    <div className="w-full px-3 relative">
-                      <div class="flex absolute inset-y-0 left-0 items-center pl-3 pointer-events-none">
-                        <svg
-                          xmlns="http://www.w3.org/2000/svg"
-                          viewBox="0 0 24 24"
-                          fill="currentColor"
-                          className="w-6 h-6 text-white"
-                        >
-                          <path
-                            fillRule="evenodd"
-                            d="M14.447 3.027a.75.75 0 01.527.92l-4.5 16.5a.75.75 0 01-1.448-.394l4.5-16.5a.75.75 0 01.921-.526zM16.72 6.22a.75.75 0 011.06 0l5.25 5.25a.75.75 0 010 1.06l-5.25 5.25a.75.75 0 11-1.06-1.06L21.44 12l-4.72-4.72a.75.75 0 010-1.06zm-9.44 0a.75.75 0 010 1.06L2.56 12l4.72 4.72a.75.75 0 11-1.06 1.06L.97 12.53a.75.75 0 010-1.06l5.25-5.25a.75.75 0 011.06 0z"
-                            clipRule="evenodd"
-                          />
-                        </svg>
-                      </div>
-                      <input
-                        className="appearance-none focus:outline-none w-full bg-transparent text-white placeholder:text-[#909090] border-b border-white py-3 px-4 ml-3 leading-tight"
-                        id="grid-first-name"
-                        type="text"
-                        placeholder="Codechef ID"
-                        defaultValue={""}
-                        onChange={(e) => setCodechef(e.target.value)}
-                      />
-                    </div>
-                  </div>
-                  <div className="flex mb-4">
-                    <div className="w-full px-3 relative">
-                      <div class="flex absolute inset-y-0 left-0 items-center pl-3 pointer-events-none">
-                        <svg
-                          xmlns="http://www.w3.org/2000/svg"
-                          viewBox="0 0 24 24"
-                          fill="currentColor"
-                          className="w-6 h-6 text-white"
-                        >
-                          <path
-                            fillRule="evenodd"
-                            d="M14.447 3.027a.75.75 0 01.527.92l-4.5 16.5a.75.75 0 01-1.448-.394l4.5-16.5a.75.75 0 01.921-.526zM16.72 6.22a.75.75 0 011.06 0l5.25 5.25a.75.75 0 010 1.06l-5.25 5.25a.75.75 0 11-1.06-1.06L21.44 12l-4.72-4.72a.75.75 0 010-1.06zm-9.44 0a.75.75 0 010 1.06L2.56 12l4.72 4.72a.75.75 0 11-1.06 1.06L.97 12.53a.75.75 0 010-1.06l5.25-5.25a.75.75 0 011.06 0z"
-                            clipRule="evenodd"
-                          />
-                        </svg>
-                      </div>
-                      <input
-                        className="appearance-none focus:outline-none w-full bg-transparent text-white placeholder:text-[#909090] border-b border-white py-3 px-4 ml-3 leading-tight"
-                        id="grid-first-name"
-                        type="text"
-                        placeholder="Codeforces ID"
-                        defaultValue={""}
-                        onChange={(e) => setCodeforces(e.target.value)}
-                      />
-                    </div>
-                  </div>
-                  <div className="flex flex-col w-full items-center mt-8 justify-center">
-                    <button
-                      class="bg-[#43c0f5] text-lg transition-all w-[95%] ml-6 mb-4 text-[#141c28] font-bold py-4 px-6 rounded-xl"
-                      onClick={handleSubmit}
-                    >
-                      Sign up
-                    </button>
-                    <p className="text-md text-white">
-                      Already have an account?{" "}
-                      <Link
-                        href={"/signin"}
-                        className="text-[#43c0f5] underline"
-                      >
-                        Login
-                      </Link>
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </div>
+              <InputField
+                icon={<CodeIcon />}
+                type="text"
+                placeholder="Leetcode ID"
+                onChange={(e) => setLeetcode(e.target.value)}
+              />
+              <InputField
+                icon={<CodeIcon />}
+                type="text"
+                placeholder="Codechef ID"
+                onChange={(e) => setCodechef(e.target.value)}
+              />
+              <InputField
+                icon={<CodeIcon />}
+                type="text"
+                placeholder="Codeforces ID"
+                onChange={(e) => setCodeforces(e.target.value)}
+              />
+              <button
+                type="submit"
+                className="w-full bg-[#43c0f5] text-lg transition-all text-[#141c28] font-bold py-3 px-6 rounded-xl hover:bg-[#3aa8d8]"
+              >
+                Sign up
+              </button>
+            </form>
+            <p className="mt-6 text-center text-white text-md">
+              Already have an account?{" "}
+              <Link href="/signin" className="text-[#43c0f5] underline">
+                Login
+              </Link>
+            </p>
           </div>
         </div>
       </div>
-    </>
+    </div>
   );
 }
+
+const InputField = ({ icon, type, placeholder, onChange }) => (
+  <div className="relative">
+    <div className="absolute inset-y-0 left-0 flex items-center pl-3 text-white pointer-events-none">
+      {icon}
+    </div>
+    <input
+      className="w-full bg-transparent text-white placeholder-[#909090] border-b border-white py-2 px-4 pl-10 focus:outline-none focus:border-[#43c0f5] transition-colors"
+      type={type}
+      placeholder={placeholder}
+      onChange={onChange}
+    />
+  </div>
+);
+
+const UserIcon = () => (
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" className="w-5 h-5">
+    <path d="M10 8a3 3 0 100-6 3 3 0 000 6zM3.465 14.493a1.23 1.23 0 00.41 1.412A9.957 9.957 0 0010 18c2.31 0 4.438-.784 6.131-2.1.43-.333.604-.903.408-1.41a7.002 7.002 0 00-13.074.003z" />
+  </svg>
+);
+
+const EmailIcon = () => (
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" className="w-5 h-5">
+    <path d="M3 4a2 2 0 00-2 2v1.161l8.441 4.221a1.25 1.25 0 001.118 0L19 7.162V6a2 2 0 00-2-2H3z" />
+    <path d="M19 8.839l-7.77 3.885a2.75 2.75 0 01-2.46 0L1 8.839V14a2 2 0 002 2h14a2 2 0 002-2V8.839z" />
+  </svg>
+);
+
+const LockIcon = () => (
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" className="w-5 h-5">
+    <path fillRule="evenodd" d="M10 1a4.5 4.5 0 00-4.5 4.5V9H5a2 2 0 00-2 2v6a2 2 0 002 2h10a2 2 0 002-2v-6a2 2 0 00-2-2h-.5V5.5A4.5 4.5 0 0010 1zm3 8V5.5a3 3 0 10-6 0V9h6z" clipRule="evenodd" />
+  </svg>
+);
+
+const CodeIcon = () => (
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" className="w-5 h-5">
+    <path fillRule="evenodd" d="M6.28 5.22a.75.75 0 010 1.06L2.56 10l3.72 3.72a.75.75 0 01-1.06 1.06L.97 10.53a.75.75 0 010-1.06l4.25-4.25a.75.75 0 011.06 0zm7.44 0a.75.75 0 011.06 0l4.25 4.25a.75.75 0 010 1.06l-4.25 4.25a.75.75 0 01-1.06-1.06L17.44 10l-3.72-3.72a.75.75 0 010-1.06zM11.377 2.011a.75.75 0 01.612.867l-2.5 14.5a.75.75 0 01-1.478-.255l2.5-14.5a.75.75 0 01.866-.612z" clipRule="evenodd" />
+  </svg>
+);
 
 export default Signup2;
 
