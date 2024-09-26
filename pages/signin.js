@@ -16,7 +16,7 @@ function Login1() {
     <div className="flex flex-col items-center justify-center min-h-screen w-full bg-[#141c28] p-4">
       <div className="w-full max-w-4xl bg-[#141c28] border-2 border-[#43c0f5] shadow-xl shadow-all rounded-2xl overflow-hidden">
         <div className="flex flex-col items-center justify-center md:flex-row">
-          <div className="flex items-center justify-center w-full p-8 md:w-1/2">
+          <div className="flex items-center justify-center w-full px-8 pt-8 pb-0 md:w-1/2">
             <Image src={LL} height={300} width={250} className="hidden h-auto max-w-full md:block" alt="Logo" />
             <Image src={LLL} height={160} width={140} className="block h-auto max-w-full md:hidden" alt="Logo" />
           </div>
