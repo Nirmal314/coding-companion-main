@@ -23,13 +23,32 @@ function DaisyNav() {
     router.push("/");
   }
 
+  const menuVariants = {
+    open: {
+      y: 0,
+      opacity: 1,
+      transition: {
+        duration: 0.5,
+        ease: "easeInOut"
+      }
+    },
+    closed: {
+      y: "-100%",
+      opacity: 0,
+      transition: {
+        duration: 0.5,
+        ease: "easeInOut"
+      }
+    }
+  };
+
   return (
     <>
       <motion.div
         initial={{ y: -100, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
         transition={{ duration: 1, type: "spring" }}
-        className="navbar fixed z-[100] top-0 bg-[#0e1524] backdrop-filter backdrop-blur-xl bg-opacity-60 w-full"
+        className="fixed items-center p-2 min-h-16 w-full z-[100] top-0 bg-[#0e1524] backdrop-filter backdrop-blur-xl bg-opacity-60 "
       >
         <div className="flex items-center justify-between w-full px-4">
           {/* Logo */}
@@ -103,9 +122,14 @@ function DaisyNav() {
                   onClick={() => setIsOpen(!isOpen)}
                 >
                   {isOpen ? (
-                    <span className="text-2xl">&times;</span> // Close icon
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="#fff" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="h-8 w-8">
+                      <path stroke-linecap="round" stroke-linejoin="round" d="M6 18 18 6M6 6l12 12" />
+                    </svg>
+
                   ) : (
-                    <span className="text-2xl">&#9776;</span> // Hamburger icon
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="#fff" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="h-8 w-8">
+                      <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 5.25h16.5m-16.5 4.5h16.5m-16.5 4.5h16.5m-16.5 4.5h16.5" />
+                    </svg>
                   )}
                 </button>
               </>
@@ -115,32 +139,57 @@ function DaisyNav() {
       </motion.div>
 
       {/* Nav Items - Responsive Menu */}
-      {isOpen && (
-        <div className="bg-[#141c28] p-4 md:hidden mt-[4.7rem]">
-          <div className="flex flex-col items-center justify-center space-y-6">
-            <Link href={"/"} className="text-white w-fit rounded-lg text-center hover:text-[#43c0f5] hover:bg-transparent px-4 py-2 border-b border-b-[#43c0f5]">
-              Home
-            </Link>
-            <Link href={"/explore"} className="text-white w-fit rounded-lg text-center hover:text-[#43c0f5] hover:bg-transparent px-4 py-2 border-b border-b-[#43c0f5]">
-              Explore
-            </Link>
-            <Link href={"/problems"} className="text-white w-fit rounded-lg text-center hover:text-[#43c0f5] hover:bg-transparent px-4 py-2 border-b border-b-[#43c0f5]">
-              All Problems
-            </Link>
-            <Link href={"/about"} className="text-white w-fit rounded-lg text-center hover:text-[#43c0f5] hover:bg-transparent px-4 py-2 border-b border-b-[#43c0f5]">
-              About Us
-            </Link>
-            {!tokeN.value && (
+      <motion.div
+        initial={{ height: 0, opacity: 0 }}
+        animate={{
+          height: isOpen ? "auto" : 0,
+          opacity: isOpen ? 1 : 0,
+        }}
+        transition={{ duration: 0.5, ease: "easeInOut" }}
+        className="overflow-hidden md:hidden"
+      >
+        {isOpen && (
+          <motion.div
+            variants={menuVariants}
+            initial="closed"
+            animate={isOpen ? "open" : "closed"} className="fixed z-[100] top-0 bg-[#0e1524] backdrop-filter backdrop-blur-xl bg-opacity-60 w-full mt-[4.0055rem] py-4">
+            <div className="flex flex-col items-center justify-center space-y-6">
               <Link
-                href={"/signin"}
+                href={"/"}
                 className="text-white w-fit rounded-lg text-center hover:text-[#43c0f5] hover:bg-transparent px-4 py-2 border-b border-b-[#43c0f5]"
               >
-                Sign in
+                Home
               </Link>
-            )}
-          </div>
-        </div>
-      )}
+              <Link
+                href={"/explore"}
+                className="text-white w-fit rounded-lg text-center hover:text-[#43c0f5] hover:bg-transparent px-4 py-2 border-b border-b-[#43c0f5]"
+              >
+                Explore
+              </Link>
+              <Link
+                href={"/problems"}
+                className="text-white w-fit rounded-lg text-center hover:text-[#43c0f5] hover:bg-transparent px-4 py-2 border-b border-b-[#43c0f5]"
+              >
+                All Problems
+              </Link>
+              <Link
+                href={"/about"}
+                className="text-white w-fit rounded-lg text-center hover:text-[#43c0f5] hover:bg-transparent px-4 py-2 border-b border-b-[#43c0f5]"
+              >
+                About Us
+              </Link>
+              {!tokeN.value && (
+                <Link
+                  href={"/signin"}
+                  className="text-white w-fit rounded-lg text-center hover:text-[#43c0f5] hover:bg-transparent px-4 py-2 border-b border-b-[#43c0f5]"
+                >
+                  Sign in
+                </Link>
+              )}
+            </div>
+          </motion.div>
+        )}
+      </motion.div>
     </>
   );
 }
