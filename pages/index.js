@@ -56,7 +56,7 @@ function Home() {
 
   return (
     <>
-      <Navbar />
+      {/* <Navbar /> */}
       <div className="flex flex-col items-center justify-start w-full h-screen">
         <div className="absolute bottom-0 flex items-center justify-center w-full h-screen bg-transparent">
           <div className="h-[90vh] w-full hidden md:block">

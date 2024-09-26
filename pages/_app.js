@@ -3,6 +3,7 @@ import LoadingBar from "react-top-loading-bar";
 import { Montserrat } from "@next/font/google";
 import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
+import Navbar from "../components/Navbar"
 // const ms = Montserrat({
 //   weight: "400",
 // });
@@ -27,9 +28,10 @@ function MyApp({ Component, pageProps }) {
         height={3}
         onLoaderFinished={() => setProgress(0)}
       />
-      {/* <main className={ms.className}> */}
+      <main>
+        <Navbar />
         <Component {...pageProps} />
-      {/* </main> */}
+      </main>
     </>
   );
 }

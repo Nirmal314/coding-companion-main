@@ -127,7 +127,7 @@ function DaisyNav() {
                 </Link>
 
                 <label class="hamburger block md:hidden">
-                  <input className="text-white " type="checkbox" onClick={() => setIsOpen(!isOpen)} />
+                  <input className="text-white" id="hamburger-btn" type="checkbox" onClick={() => setIsOpen(!isOpen)} />
                   <svg viewBox="0 0 32 32">
                     <path class="line line-top-bottom" d="M27 10 13 10C10.8 10 9 8.2 9 6 9 3.5 10.8 2 13 2 15.2 2 17 3.8 17 6L17 26C17 28.2 18.8 30 21 30 23.2 30 25 28.2 25 26 25 23.8 23.2 22 21 22L7 22"></path>
                     <path class="line" d="M7 16 27 16"></path>
@@ -157,24 +157,36 @@ function DaisyNav() {
             animate={isOpen ? "open" : "closed"} className="fixed z-[100] top-0 bg-[#0e1524] backdrop-filter backdrop-blur-xl bg-opacity-60 w-full mt-[4.0055rem] py-4">
             <div className="flex flex-col items-center justify-center space-y-6">
               <Link
+                onClick={() => {
+                  document.getElementById("hamburger-btn").click()
+                }}
                 href={"/"}
                 className="text-white w-fit rounded-lg text-center hover:text-[#43c0f5] hover:bg-transparent px-4 py-2 border-b border-b-[#43c0f5]"
               >
                 Home
               </Link>
               <Link
+                onClick={() => {
+                  document.getElementById("hamburger-btn").click()
+                }}
                 href={"/explore"}
                 className="text-white w-fit rounded-lg text-center hover:text-[#43c0f5] hover:bg-transparent px-4 py-2 border-b border-b-[#43c0f5]"
               >
                 Explore
               </Link>
               <Link
+                onClick={() => {
+                  document.getElementById("hamburger-btn").click()
+                }}
                 href={"/problems"}
                 className="text-white w-fit rounded-lg text-center hover:text-[#43c0f5] hover:bg-transparent px-4 py-2 border-b border-b-[#43c0f5]"
               >
                 All Problems
               </Link>
               <Link
+                onClick={() => {
+                  document.getElementById("hamburger-btn").click()
+                }}
                 href={"/about"}
                 className="text-white w-fit rounded-lg text-center hover:text-[#43c0f5] hover:bg-transparent px-4 py-2 border-b border-b-[#43c0f5]"
               >
@@ -182,6 +194,9 @@ function DaisyNav() {
               </Link>
               {!tokeN.value && (
                 <Link
+                  onClick={() => {
+                    document.getElementById("hamburger-btn").click()
+                  }}
                   href={"/signin"}
                   className="text-white w-fit rounded-lg text-center hover:text-[#43c0f5] hover:bg-transparent px-4 py-2 border-b border-b-[#43c0f5]"
                 >

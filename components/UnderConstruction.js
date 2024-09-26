@@ -5,7 +5,7 @@ import { motion } from "framer-motion";
 function UnderConstruction() {
     return (
         <div className="flex flex-col items-center justify-start w-full min-h-screen">
-            <Navbar />
+            {/* <Navbar /> */}
             <div className="flex items-center justify-center fixed h-[90vh] bottom-0 w-full bg-transparent">
                 <div className="h-[90vh] w-full">
                     <motion.div
