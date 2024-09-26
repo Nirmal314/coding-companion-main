@@ -1,4 +1,3 @@
-import Head from "next/head";
 import Image from "next/image";
 import Navbar from "../components/Navbar";
 import lc from "../public/LC_white.png";
@@ -9,7 +8,7 @@ import cfc from "../public/CF_color.png";
 import ccc from "../public/CC_color.png";
 import { useRef } from "react";
 import { motion } from "framer-motion";
-import { Cursor, Typewriter, useTypewriter } from "react-simple-typewriter";
+import { useTypewriter } from "react-simple-typewriter";
 
 function Home() {
   const ref = useRef(null);
@@ -108,7 +107,6 @@ function Home() {
         </p>
         <div className="font-thin tracking-[1rem] text-center text-white uppercase text-md md:text-2xl mb-28">
           <span>{text}</span>
-          <Cursor cursorColor="#43c0f5"></Cursor>
         </div>
 
         <div className="flex flex-col w-full px-4 gap-y-10 lg:gap-x-96">
