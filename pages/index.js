@@ -73,7 +73,7 @@ function Home() {
           </div>
         </div>
         <motion.div
-          intial={{ opacity: 0 }}
+          initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{
             duration: 1,
@@ -106,8 +106,7 @@ function Home() {
         <p className="mt-20 mb-8 text-4xl font-semibold text-center text-white md:text-6xl">
           Keep an eye on <br /> All of your progress
         </p>
-        <div className="tracking-[1.50rem] uppercase text-md md:text-2xl text-white text-ceter font-thin mb-28">
-          {/* <div className="text-lg font-thin tracking-wide text-center text-white md:text-2xl mb-28"> */}
+        <div className="tracking-[1.50rem] uppercase text-md md:text-2xl text-white text-center font-thin mb-28">
           <span>{text}</span>
           <Cursor cursorColor="#43c0f5"></Cursor>
         </div>
@@ -222,8 +221,6 @@ function Home() {
             </div>
           </div>
         </div>
-
-
       </div>
     </>
   );
