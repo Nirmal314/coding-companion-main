@@ -19,6 +19,9 @@ function MyApp({ Component, pageProps }) {
       setProgress(100);
     });
   }, [router.query]);
+
+  const noNavbarRoutes = ["/signin", "/signup"];
+
   return (
     <>
       <LoadingBar
@@ -29,7 +32,7 @@ function MyApp({ Component, pageProps }) {
         onLoaderFinished={() => setProgress(0)}
       />
       <main>
-        <Navbar />
+        {!noNavbarRoutes.includes(router.pathname) && <Navbar />}
         <Component {...pageProps} />
       </main>
     </>
